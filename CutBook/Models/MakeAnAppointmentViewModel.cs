@@ -2,7 +2,7 @@
 {
     public class MakeAnAppointmentViewModel
     {
-        KindOfHairCut[] kindOfHairCuts;
+        KindOfHaircut[] kindOfHairCuts;
         string[] dates;
         string[] times;
         int countKindOfHairCuts;
@@ -14,7 +14,7 @@
             this.countDates = 0;
             this.countTimes = 0;
         }
-        public void AddKindOfHairCuts(KindOfHairCut kindOfHairCuts)
+        public void AddKindOfHairCuts(KindOfHaircut kindOfHairCuts)
         {
             this.kindOfHairCuts[this.countKindOfHairCuts] = kindOfHairCuts;
             this.countKindOfHairCuts++;
@@ -29,7 +29,7 @@
             this.times[this.countTimes] = times;
             this.countTimes++;
         }
-        public KindOfHairCut GetKindOfHairCut(int index)
+        public KindOfHaircut GetKindOfHairCut(int index)
         {
             return this.kindOfHairCuts[index];
         }

@@ -1,0 +1,32 @@
+﻿@{
+    ViewData["Title"] = "GetSignUpForm";
+    Layout = "~/Views/Shared/MasterPage.cshtml";
+}
+<link href="~/css/stylesheetsingup.css" rel="stylesheet" />
+<div class="signup-container">
+    <div class="signup-card">
+        <h1 class="signup-heading">Create <span>Account</span></h1>
+        <div class="gold-divider"></div>
+        @if (ViewBag.Error != null)
+        {
+            <div class="error-mesage">@ViewBag.Error</div>
+        }
+        <form action="/Home/SignUp" method="post" class="signup-form">
+            <div class="form-group">
+                <label>ID</label>
+                <input type="text" name="userID" placeholder="Enter your ID" required />
+                <label>Full Name</label>
+                <input type="text" name="firstName" placeholder="First Name" required />
+                <input type="text" name="lastName" placeholder="Last Name" required />
+                <label>Email</label>
+                <input type="email" name="userEmail" placeholder="example@email.com" required />
+                <label>Phone</label>
+                <input type="tel" name="userTel" placeholder="050-1234567" required />
+                <label>Password</label>
+                <input type="password" name="userPassword" placeholder="Enter a strong password" required />
+            </div>
+            <button type="submit" class="btn-signup">Sign Up</button>
+        </form>
+    </div>
+</div>
+

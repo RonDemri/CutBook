@@ -1,0 +1,131 @@
+﻿/* ממרכז את כרטיס ההרשמה בתוך האזור הפנוי של ה-Main */
+.signup-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+/* עיצוב כרטיס הזכוכית הכהה - תואם לחלוטין ל-Home Card שלך */
+.signup-card {
+    background-color: rgba(28, 17, 15, 0.7);
+    border: 1px solid rgba(212, 175, 55, 0.15);
+    border-radius: 15px;
+    padding: 40px;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6);
+    width: 100%;
+    max-width: 500px; /* רוחב מושלם לטפסים */
+    display: flex;
+    flex-direction: column;
+}
+
+/* כותרת הטופס */
+.signup-heading {
+    font-size: 36px;
+    margin: 0;
+    font-weight: 700;
+    text-align: center;
+    color: #ffffff;
+}
+
+.signup-heading span {
+    color: #d4af37; /* צבע הזהב של המותג */
+}
+
+/* קו הפרדה זהוב מתחת לכותרת */
+.gold-divider {
+    width: 60px;
+    height: 3px;
+    background-color: #d4af37;
+    margin: 15px auto 30px auto;
+}
+
+/* מבנה הטופס */
+.signup-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px; /* רווח קבוע ונוח בין השדות */
+}
+
+/* סידור השם הפרטי והמשפחה באותה שורה */
+.form-row {
+    display: flex;
+    gap: 15px;
+    width: 100%;
+}
+
+.form-row .form-group {
+    flex: 1;
+    min-width: 0;
+}
+
+/* כל בלוק של לייבל + אינפוט */
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.form-group label {
+    color: #cccccc;
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+}
+
+/* עיצוב שדות הקלט */
+.form-group input {
+    background-color: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    padding: 12px 16px;
+    color: #ffffff;
+    font-size: 16px;
+    transition: all 0.3s ease;
+    outline: none;
+    box-sizing: border-box;
+}
+
+.form-group input:focus {
+    border-color: #d4af37;
+    background-color: rgba(212, 175, 55, 0.02);
+    box-shadow: 0 0 10px rgba(212, 175, 55, 0.1);
+}
+
+.form-group input::placeholder {
+    color: #666666;
+}
+
+
+.btn-signup {
+    display: block;
+    background-color: #d4af37;
+    color: #14110f;
+    border: none;
+    padding: 14px;
+    border-radius: 8px;
+    font-weight: 700;
+    font-size: 18px;
+    text-align: center;
+    cursor: pointer;
+    margin-top: 10px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+}
+
+/* אפקט ריחוף על הכפתור */
+.btn-signup:hover {
+    background-color: #f1c40f;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(212, 175, 55, 0.3);
+}
+
+.error-mesage {
+    color: red;
+    font-weight: bold;
+    text-align: center;
+    
+}

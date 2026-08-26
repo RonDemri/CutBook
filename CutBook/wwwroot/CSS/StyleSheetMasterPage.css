@@ -1,0 +1,93 @@
+﻿* {
+    box-sizing: border-box;
+}
+
+html, body {
+    height: auto;
+    min-height: 100vh;
+    overflow-y: auto; /* מאפשר גלילה חלקה למקרה שהתוכן ארוך */
+    overflow-x: hidden; /* מונע תזוזות ימינה ושמאלה */
+    margin: 0;
+    padding: 0;
+}
+
+@font-face {
+    font-family: 'inter-italic-variablefont_opsz,wght';
+    src: url('../fonts/inter-italic-variablefont_opsz,wght.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'inter-variablefont_opsz,wght';
+    src: url('../fonts/inter-variablefont_opsz,wght.ttf') format('truetype');
+}
+
+body {
+    font-family: 'inter-italic-variablefont_opsz,wght';
+    color: #ffffff;
+    background-image: url('../images/backround2.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: left center;
+    background-attachment: fixed;
+}
+
+/* ==========================================================================
+   תפריט ניווט צידי (Sidebar Navigation) - מותאם לזום 100%
+   ========================================================================== */
+nav {
+    width: 280px; /* הקטנה מ-350px כדי לפנות מקום לתוכן הראשי */
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 40px 15px; /* צמצום ה-padding העליון כדי שלא ייחתך */
+    z-index: 1000;
+}
+
+nav img {
+    max-width: 70%; /* כיווץ אלגנטי של הלוגו */
+    height: auto;
+    margin-bottom: 35px; /* צמצום המרחק מתחת ללוגו */
+}
+
+.nav-links {
+    display: flex;
+    flex-direction: column;
+    gap: 8px; /* רווחים קטנים ומדויקים יותר בין הכפתורים */
+    width: 100%;
+    text-align: center;
+}
+
+.nav-links a {
+    color: #cccccc;
+    text-decoration: none;
+    font-size: 18px; /* תיקון קריטי: הקטנה מ-25px לפונט קריא, מקצועי ופרופורציונלי */
+    font-weight: 500;
+    padding: 10px 5px;
+    border-radius: 6px;
+    display: block;
+    transition: all 0.3s ease;
+}
+
+.nav-links a:hover {
+    color: #d4af37;
+    background-color: rgba(212, 175, 55, 0.05);
+    padding-left: 10px;
+}
+
+.main {
+    margin-left: 280px; /* תואם בדיוק לרוחב החדש של ה-nav */
+    width: calc(100% - 280px);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start; /* שומר שהתוכן תמיד יתחיל מלמעלה בקו ישר ונקי */
+    padding: 50px 40px; /* מרווח מעולה של הדף מהקצוות */
+}
+.user-greeting {
+    color: #ddc391;
+    font-size: 25px;
+}

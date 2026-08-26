@@ -1,0 +1,79 @@
+﻿@{
+    ViewData["Title"] = "Make Appointment";
+    Layout = "~/Views/Shared/MasterPage.cshtml";
+}
+<link href="~/css/stylesheetmakeanappointment.css" rel="stylesheet" />
+
+<div class="signup-container">
+    <div class="signup-card">
+        <h1 class="signup-heading">Make an <span>Appointment</span></h1>
+        <div class="gold-divider"></div>
+
+        @if (ViewBag.Error != null)
+        {
+            <div class="errorM">@ViewBag.Error</div>
+        }
+
+        <form action="/User/SubmitAppointment" method="post" class="signup-form">
+            <div class="form-group">
+                <label>Select Service</label>
+                <select name="haircutId" id="haircutSelect" required style="width: 100%; padding: 10px; margin-bottom: 15px;" onchange="loadAvailableHours()">
+                    <option value="">-- Choose Service --</option>
+                    @if (ViewBag.Haircuts != null)
+                    {
+                        foreach (var item in ViewBag.Haircuts)
+                        {
+                            <option value="@item.GetHairCutID()">
+                                @item.GetHairCutName() (@item.GetHairCutTime() mins - ₪@item.GetHairCutPrice())
+                            </option>
+                        }
+                    }
+                </select>
+
+                <label>Select Date</label>
+                <input type="date"
+                       name="appointmentDate"
+                       id="dateInput"
+                       min="@DateTime.Now.ToString("yyyy-MM-dd")"
+                       required
+                       style="width: 100%; padding: 10px; margin-bottom: 15px;"
+                       onchange="loadAvailableHours()" />
+
+                <label>Select Time</label>
+                <select name="appointmentTime" id="timeSelect" required style="width: 100%; padding: 10px; margin-bottom: 15px;">
+                    <option value="">-- First choose service and date --</option>
+                </select>
+            </div>
+
+            <button type="submit" class="btn-signup">Book Now</button>
+        </form>
+    </div>
+</div>
+
+<script>
+    function loadAvailableHours() {
+        var haircutId = document.getElementById("haircutSelect").value;
+        var dateVal = document.getElementById("dateInput").value;
+        var timeSelect = document.getElementById("timeSelect");
+
+        if (!haircutId || !dateVal) return;
+
+        timeSelect.innerHTML = "<option>Loading hours...</option>";
+
+        fetch('/User/GetAvailableHours?selectedDate=' + dateVal + '&haircutId=' + haircutId)
+            .then(response => response.json())
+            .then(data => {
+                timeSelect.innerHTML = "";
+                if (data.length === 0) {
+                    timeSelect.innerHTML = "<option value=''>No available times for this date</option>";
+                } else {
+                    data.forEach(function(time) {
+                        var opt = document.createElement("option");
+                        opt.value = time;
+                        opt.innerText = time;
+                        timeSelect.appendChild(opt);
+                    });
+                }
+            });
+    }
+</script>

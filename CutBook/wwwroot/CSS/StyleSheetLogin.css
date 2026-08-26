@@ -1,0 +1,118 @@
+﻿.main {
+    margin-left: 350px; /* תואם בדיוק לרוחב ה-nav שלך */
+    width: calc(100% - 350px);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px;
+}
+
+/* קונטיינר מעטפת להבטחת מרכוז מושלם */
+.login-wrapper {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* כרטיס ההתחברות הכהה */
+.login-container {
+    background-color: rgba(20, 17, 15, 0.7);
+    border: 1px solid rgba(212, 175, 55, 0.2);
+    padding: 40px 50px;
+    border-radius: 12px;
+    width: 100%;
+    max-width: 450px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7);
+    text-align: center;
+    backdrop-filter: blur(8px);
+}
+
+.login-container h2 {
+    margin: 0 0 5px 0;
+    font-size: 32px;
+    font-weight: 600;
+    color: #ffffff;
+}
+
+.login-subtitle {
+    color: #d4af37;
+    font-size: 14px;
+    margin-bottom: 35px;
+}
+
+/* עיצוב תיבות הקלט */
+.input-group {
+    display: flex;
+    flex-direction: column;
+    text-align: left; /* יישור הטקסט באנגלית לשמאל */
+    margin-bottom: 25px;
+}
+
+.input-group label {
+    color: #cccccc;
+    font-size: 15px;
+    margin-bottom: 8px;
+    font-weight: 500;
+}
+
+.input-group input {
+    background-color: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    padding: 14px 16px;
+    border-radius: 6px;
+    color: #ffffff;
+    font-size: 16px;
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+
+.input-group input:focus {
+    border-color: #d4af37;
+    background-color: rgba(255, 255, 255, 0.06);
+    box-shadow: 0 0 8px rgba(212, 175, 55, 0.3);
+}
+
+
+.login-submit-btn {
+    background-color: #d4af37;
+    color: #14110f;
+    border: none;
+    width: 100%;
+    padding: 14px;
+    font-size: 18px;
+    font-weight: 600;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 10px;
+}
+
+.login-submit-btn:hover {
+    background-color: #f1c40f;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(212, 175, 55, 0.4);
+}
+
+.login-footer {
+    margin-top: 25px;
+    font-size: 15px;
+    color: #aaaaaa;
+}
+
+.login-footer a {
+    color: #d4af37;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.login-footer a:hover {
+    text-decoration: underline;
+}
+.errorM {
+    color: red;
+    text-align: center;
+    font-weight: bold;
+}

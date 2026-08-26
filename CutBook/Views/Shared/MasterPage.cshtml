@@ -1,0 +1,45 @@
+﻿@using Microsoft.AspNetCore.Http
+@{
+    ViewData["Title"] = "MasterPage";
+    var userName = Context.Session.GetString("UserName");
+    var isAdmin = Context.Session.GetString("IsAdmin");
+}
+<link href="~/css/stylesheetmasterpage.css" rel="stylesheet" />
+<nav>
+    <img src="~/images/logo.png" alt="CutBook Logo" />
+    <div class="nav-links">
+        @if (!string.IsNullOrEmpty(userName))
+        {
+            var firstName = userName.Split(' ')[0];
+            <span class="user-greeting">Hello, @firstName!</span>
+
+            @if (isAdmin == "true")
+            {
+                <!-- תפריט מנהל -->
+                <a href="/Admin/Appointments">Appointments</a>
+                <a href="/Admin/MyIncomes">My incomes</a>
+                <a href="/Home/Logout">Log out</a>
+            }
+            else
+            {
+                <!-- תפריט לקוח מחובר -->
+                <a href="/Home/ViewHomePage">Home</a>
+                <a href="/User/MakeAnAppointment">Make an appointment</a>
+                <a href="/User/ViewAppointments">My appointments</a>
+                <a href="/Home/Logout">Log out</a>
+            }
+        }
+        else
+        {
+            <!-- תפריט אורח (מציג את הכפתורים אך יעביר להתחברות בלחיצה) -->
+            <a href="/Home/ViewHomePage">Home</a>
+            <a href="/Home/GetLoginForm">Log in</a>
+            <a href="/Home/GetSignUpForm">Sign up</a>
+            <a href="/User/MakeAnAppointment">Make an appointment</a>
+            <a href="/User/ViewAppointments">My appointments</a>
+        }
+    </div>
+</nav>
+<main class="main">
+    @RenderBody()
+</main>

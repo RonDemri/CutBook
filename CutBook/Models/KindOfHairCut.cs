@@ -1,12 +1,12 @@
 ﻿namespace CutBook.Models
 {
-    public class KindOfHairCut
+    public class KindOfHaircut
     {
         int hairCutID;
         string hairCutName;
         string hairCutPrice;
         string hairCutTime;
-        public KindOfHairCut(int hairCutID, string hairCutName, string hairCutPrice, string hairCutTime)
+        public KindOfHaircut(int hairCutID, string hairCutName, string hairCutPrice, string hairCutTime)
         {
             this.hairCutID = hairCutID;
             this.hairCutName = hairCutName;

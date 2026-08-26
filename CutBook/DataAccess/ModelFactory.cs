@@ -22,21 +22,19 @@ namespace CutBook.DataAccess
             int hairCutID = int.Parse(dataRow["hairCutID"].ToString());
             return new HairCutImage(imageID, imageName, hairCutID);
         }
-        public KindOfHairCut GetKindOfHairCut(DataRow dataRow)
+        public KindOfHaircut GetKindOfHairCut(DataRow dataRow)
         {
             int hairCutID = int.Parse(dataRow["hairCutID"].ToString());
             string hairCutName = (dataRow["hairCutName"].ToString());
             string hairCutPrice = (dataRow["hairCutPrice"].ToString());
             string hairCutTime = (dataRow["hairCutTime"].ToString());
-            return new KindOfHairCut(hairCutID, hairCutName, hairCutPrice, hairCutTime);
+            return new KindOfHaircut(hairCutID, hairCutName, hairCutPrice, hairCutTime);
         }
         public KindOfHairCutAppointment GetKindOfHairCutAppointment(DataRow dataRow)
         {
             int appointmentID = int.Parse(dataRow["appointmentID"].ToString());
-            int hairCutID1 = int.Parse(dataRow["hairCutID1"].ToString());
-            int hairCutID2 = int.Parse(dataRow["hairCutID2"].ToString());
-            int hairCutID3 = int.Parse(dataRow["hairCutID3"].ToString());
-            return new KindOfHairCutAppointment(appointmentID, hairCutID1, hairCutID2, hairCutID3);
+            int hairCutID = int.Parse(dataRow["hairCutID"].ToString());
+            return new KindOfHairCutAppointment(appointmentID, hairCutID);
         }
         public User GetUser(DataRow dataRow)
         {
@@ -45,7 +43,8 @@ namespace CutBook.DataAccess
             string userEmail = dataRow["userEmail"].ToString();
             string userName = dataRow["userName"].ToString();
             string userPassword = dataRow["userPassword"].ToString();
-            return new User(userID, userTel, userEmail, userName, userPassword);
+            bool isAdmin = dataRow["IsAdmin"] != DBNull.Value && Convert.ToBoolean(dataRow["IsAdmin"]);
+            return new User(userID, userTel, userEmail, userName, userPassword, isAdmin);
         }
     }
 }

@@ -1,0 +1,118 @@
+﻿.signup-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 75vh;
+    padding: 20px;
+}
+
+.signup-card {
+    background-color: #1e1e1e;
+    border: 1px solid #333;
+    border-radius: 12px;
+    padding: 35px 30px;
+    width: 100%;
+    max-width: 420px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+    color: #ffffff;
+}
+
+/* כותרות וקו זהב */
+.signup-heading {
+    text-align: center;
+    font-size: 26px;
+    font-weight: 700;
+    margin-bottom: 8px;
+}
+
+    .signup-heading span {
+        color: #d4af37;
+    }
+
+.gold-divider {
+    height: 3px;
+    width: 60px;
+    background-color: #d4af37;
+    margin: 0 auto 25px auto;
+    border-radius: 2px;
+}
+
+/* שדות קלט (תאריך, שעה ותפריטי בחירה) */
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    font-size: 14px;
+    font-weight: 600;
+    color: #ccc;
+    margin-top: 10px;
+}
+
+
+.form-group input[type="date"],
+.form-group select {
+    width: 100%;
+    padding: 12px 14px;
+    border-radius: 6px;
+    border: 1px solid #444;
+    background-color: #2a2a2a;
+    color: #fff;
+    font-size: 15px;
+    outline: none;
+    box-sizing: border-box;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+    color-scheme: dark;
+}
+
+/* עיצוב האופציות בתוך הרשימה הנפתחת */
+.form-group select option {
+    background-color: #1e1e1e;
+    color: #fff;
+}
+
+/* הפיכת אייקון לוח השנה ללבן */
+.form-group input[type="date"]::-webkit-calendar-picker-indicator {
+    filter: invert(1);
+    cursor: pointer;
+}
+
+/* פוקוס זהב לכל השדות */
+.form-group input:focus,
+.form-group select:focus {
+    border-color: #d4af37;
+    box-shadow: 0 0 8px rgba(212, 175, 55, 0.4);
+}
+
+/* כפתור שליחה */
+.btn-signup {
+    width: 100%;
+    padding: 12px;
+    background-color: #d4af37;
+    color: #111;
+    font-weight: bold;
+    font-size: 16px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.1s ease;
+    margin-top: 10px;
+}
+
+.btn-signup:hover {
+    background-color: #f3c644;
+}
+
+.btn-signup:active {
+    transform: scale(0.98);
+}
+
+.errorM {
+    color: red;
+    font-weight: bold;
+    text-align: center;
+}

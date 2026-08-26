@@ -14,7 +14,10 @@ namespace CutBook.DataAccess
             this.connection = new OleDbConnection();
             this.command = new OleDbCommand();
             this.command.Connection = this.connection;
-            this.connection.ConnectionString = $@"Provider=Microsoft.ACE.OLEDB.12.0;Data Source='{Directory.GetCurrentDirectory()}\CutBook1.accdb'";
+            string baseDir = System.IO.Directory.GetCurrentDirectory();
+            string dbPath = System.IO.Path.Combine(baseDir, "App_Data", "CutBook1.accdb");
+
+            this.connection.ConnectionString = $@"Provider=Microsoft.ACE.OLEDB.12.0;Data Source='{dbPath}'";
         }
         public void OpenConnection()
         {
@@ -30,10 +33,13 @@ namespace CutBook.DataAccess
                 this.connection.Close();
             }
         }
-        public int ChangeDb(string sql)//insert, update, delete
+        public int ChangeDb(string sql) //insert, update, delete
         {
+            OpenConnection();
             this.command.CommandText = sql;
-            return this.command.ExecuteNonQuery();
+            int numOfRows = this.command.ExecuteNonQuery(); // שמירת התוצאה במשתנה
+            CloseConnection(); // סגירת החיבור
+            return numOfRows;
         }
         public DataTable GetDataTable(string sql, string tableName)
         {
