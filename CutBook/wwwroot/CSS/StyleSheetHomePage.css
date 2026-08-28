@@ -2,15 +2,19 @@
     font-family: 'inter-italic-variablefont_opsz,wght';
     src: url('../fonts/inter-italic-variablefont_opsz,wght.ttf') format('truetype');
 }
+
 @font-face {
     font-family: 'inter-variablefont_opsz,wght';
     src: url('../fonts/inter-variablefont_opsz,wght.ttf') format('truetype');
 }
+
 .home-content {
     width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
+    padding: 20px;
+    box-sizing: border-box;
 }
 
 .home-grid {
@@ -19,7 +23,6 @@
     max-width: 1000px;
     width: 100%;
 }
-
 
 .home-card {
     background-color: rgba(20, 17, 15, 0.7);
@@ -31,20 +34,28 @@
     flex: 1;
 }
 
-
 .info-card {
     display: flex;
     flex-direction: column;
     gap: 30px;
 }
 
+
 .featured-image {
     width: 100%;
-    height: 190px; /* התיקון: הקטנת הגובה מ-250px ל-190px תחשוף את רוב רוחב התמונה */
+    height: 240px; 
     position: relative;
     overflow: hidden;
     border-radius: 10px;
     border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.featured-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top; 
+    display: block;
 }
 
 .quick-info {
@@ -78,7 +89,6 @@
     font-size: 14px;
 }
 
-
 .about-card {
     display: flex;
     flex-direction: column;
@@ -89,6 +99,7 @@
     font-size: 42px;
     margin: 0;
     font-weight: 700;
+    color: #ffffff;
 }
 
 .main-heading span {
@@ -129,33 +140,4 @@
     background-color: #f1c40f;
     transform: translateY(-3px);
     box-shadow: 0 8px 20px rgba(212, 175, 55, 0.4);
-}
-.image-slider {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-}
-
-image-slider .slide {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover; /* משאירים רק את זה, כדי שימלא את כל התיבה החדשה בצורה חלקה */
-    opacity: 0;
-    transition: opacity 1s ease-in-out;
-    z-index: 1;
-}
-
-.image-slider .slide.active {
-    opacity: 1;
-    z-index: 2;
-}
-
-/* מוודא שהטקסט המוזהב של ה-Overlay יישאר תמיד בשכבה העליונה מעל התמונות */
-.image-overlay {
-    z-index: 3;
 }

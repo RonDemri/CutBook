@@ -15,14 +15,14 @@
 
             @if (isAdmin == "true")
             {
-                <!-- תפריט מנהל -->
+                // תפריט מנהל //
                 <a href="/Admin/Appointments">Appointments</a>
                 <a href="/Admin/MyIncomes">My incomes</a>
                 <a href="/Home/Logout">Log out</a>
             }
             else
             {
-                <!-- תפריט לקוח מחובר -->
+                // תפריט לקוח מחובר //
                 <a href="/Home/ViewHomePage">Home</a>
                 <a href="/User/MakeAnAppointment">Make an appointment</a>
                 <a href="/User/ViewAppointments">My appointments</a>
@@ -31,7 +31,7 @@
         }
         else
         {
-            <!-- תפריט אורח (מציג את הכפתורים אך יעביר להתחברות בלחיצה) -->
+            // תפריט אורח //
             <a href="/Home/ViewHomePage">Home</a>
             <a href="/Home/GetLoginForm">Log in</a>
             <a href="/Home/GetSignUpForm">Sign up</a>

@@ -19,7 +19,7 @@ namespace CutBook.Controllers
             Appointment[] appointments = viewModelFactory.GetAllAppointments(userID);
             return View(appointments);
         }
-        // 1. טעינת טופס קביעת תור
+
         [HttpGet]
         public IActionResult MakeAnAppointment()
         {
@@ -62,20 +62,17 @@ namespace CutBook.Controllers
             int totalSlots = (19 - 9) * 6;
             List<MyTime> availableTimes = new List<MyTime>();
             bool isToday = (parsedSelectedDate.Date == now.Date);
-            int currentMinutesNow = now.Hour * 60 + now.Minute; // המרת השעה והדקות של עכשיו לדקות
-
+            int currentMinutesNow = now.Hour * 60 + now.Minute; 
             for (int i = 0; i < totalSlots; i++)
             {
                 MyTime slot = new MyTime(9 + (i / 6), (i % 6) * 10);
 
                 int slotStart = slot.Hour * 60 + slot.Minute;
                 int slotEnd = slotStart + duration;
-                // 3. סינון שעות שכבר עברו היום (למשל: עד 12:10)
                 if (isToday && slotStart <= currentMinutesNow)
                 {
-                    continue; // דילוג על השעה
+                    continue; 
                 }
-                // 4. סינון תורים תפוסים ב-DB
                 bool isOverlap = false;
                 if (existingAppointments != null)
                 {

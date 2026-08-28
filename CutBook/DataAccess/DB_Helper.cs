@@ -8,7 +8,7 @@ namespace CutBook.DataAccess
         OleDbConnection connection;
         OleDbCommand command;
         OleDbDataAdapter dataAdapter;
-        OleDbTransaction transaction; //פיקוח על יותר משינוי אחד במוסד נתונים 
+        OleDbTransaction transaction; 
         public DB_Helper()
         {
             this.connection = new OleDbConnection();

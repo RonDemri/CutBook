@@ -1,5 +1,4 @@
-﻿/* ממרכז את כרטיס ההרשמה בתוך האזור הפנוי של ה-Main */
-.signup-container {
+﻿.signup-container {
     width: 100%;
     display: flex;
     justify-content: center;
@@ -7,7 +6,7 @@
     padding: 20px;
 }
 
-/* עיצוב כרטיס הזכוכית הכהה - תואם לחלוטין ל-Home Card שלך */
+
 .signup-card {
     background-color: rgba(28, 17, 15, 0.7);
     border: 1px solid rgba(212, 175, 55, 0.15);
@@ -16,12 +15,12 @@
     backdrop-filter: blur(10px);
     box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6);
     width: 100%;
-    max-width: 500px; /* רוחב מושלם לטפסים */
+    max-width: 500px; 
     display: flex;
     flex-direction: column;
 }
 
-/* כותרת הטופס */
+
 .signup-heading {
     font-size: 36px;
     margin: 0;
@@ -31,10 +30,10 @@
 }
 
 .signup-heading span {
-    color: #d4af37; /* צבע הזהב של המותג */
+    color: #d4af37; 
 }
 
-/* קו הפרדה זהוב מתחת לכותרת */
+
 .gold-divider {
     width: 60px;
     height: 3px;
@@ -42,14 +41,14 @@
     margin: 15px auto 30px auto;
 }
 
-/* מבנה הטופס */
+
 .signup-form {
     display: flex;
     flex-direction: column;
-    gap: 20px; /* רווח קבוע ונוח בין השדות */
+    gap: 20px; 
 }
 
-/* סידור השם הפרטי והמשפחה באותה שורה */
+
 .form-row {
     display: flex;
     gap: 15px;
@@ -61,7 +60,7 @@
     min-width: 0;
 }
 
-/* כל בלוק של לייבל + אינפוט */
+
 .form-group {
     display: flex;
     flex-direction: column;
@@ -75,7 +74,7 @@
     letter-spacing: 0.5px;
 }
 
-/* עיצוב שדות הקלט */
+
 .form-group input {
     background-color: rgba(255, 255, 255, 0.03);
     border: 1px solid rgba(255, 255, 255, 0.1);
@@ -116,7 +115,7 @@
     transition: all 0.3s ease;
 }
 
-/* אפקט ריחוף על הכפתור */
+
 .btn-signup:hover {
     background-color: #f1c40f;
     transform: translateY(-2px);
@@ -127,5 +126,13 @@
     color: red;
     font-weight: bold;
     text-align: center;
-    
+}
+
+.field-error {
+    color: #ff4d4d;
+    font-size: 13px;
+    margin-top: 3px;
+    margin-bottom: 8px;
+    display: block;
+    font-weight: bold;
 }

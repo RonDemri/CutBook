@@ -109,10 +109,6 @@ namespace CutBook.DataAccess
             return dt != null && dt.Rows.Count > 0;
         }
 
-        // ==========================================
-        // מתודות חדשות עבור מנגנון התורים והזמנים
-        // ==========================================
-
         public List<KindOfHaircut> GetAllHaircutTypes()
         {
             List<KindOfHaircut> list = new List<KindOfHaircut>();
@@ -175,7 +171,6 @@ namespace CutBook.DataAccess
 
         public bool DeleteAppointment(int appointmentId)
         {
-            // מחיקת הקשר מטבלת המפתח הזר ומחיקת התור עצמו
             string sqlLink = $"DELETE FROM KindOfHaircutAppointment WHERE AppointmentID = {appointmentId}";
             string sqlApp = $"DELETE FROM Appointment WHERE AppointmentID = {appointmentId}";
             this.dbHelper.ChangeDb(sqlLink);

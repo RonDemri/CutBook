@@ -5,19 +5,16 @@
     min-height: 100% !important;
 }
 
-/* מיכל מרכזי רחב שתופס נוכחות בדף */
 .appointments-page-container {
     max-width: 1400px;
     width: 95%;
     margin: 40px auto;
     padding: 20px;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    /* מונע מהמיכל להינעל או להיחתך */
     overflow: visible !important;
     height: auto !important;
 }
 
-/* קופסאות הסקשנים (אפקט זכוכית מודרני מורחב) */
 .table-section {
     background: rgba(255, 255, 255, 0.05);
     backdrop-filter: blur(12px);
@@ -29,7 +26,6 @@
     box-shadow: 0 12px 40px 0 rgba(0, 0, 0, 0.4);
 }
 
-/* כותרות הסקשנים */
 .section-title {
     font-size: 1.8rem;
     margin-bottom: 30px;
@@ -55,7 +51,6 @@
     margin-right: 15px;
 }
 
-/* מבנה הטבלה הרחבה */
 .appointments-table {
     width: 100%;
     border-collapse: separate;
@@ -63,49 +58,43 @@
     text-align: left;
 }
 
-    /* כותרות העמודות הכלליות */
-    .appointments-table th {
-        color: #b0b0b0;
-        font-weight: 600;
-        text-transform: uppercase;
-        font-size: 0.9rem;
-        letter-spacing: 1.5px;
-        padding: 15px 25px;
-        border-bottom: 2px solid rgba(255, 255, 255, 0.08);
-    }
+.appointments-table th {
+    color: #b0b0b0;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    letter-spacing: 1.5px;
+    padding: 15px 25px;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.08);
+}
 
-    /* שורות הנתונים */
-    .appointments-table tbody tr {
-        background: rgba(255, 255, 255, 0.02);
-        transition: all 0.25s ease;
-    }
+.appointments-table tbody tr {
+    background: rgba(255, 255, 255, 0.02);
+    transition: all 0.25s ease;
+}
 
-        /* אפקט ריחוף יפה שמבליט את השורה */
-        .appointments-table tbody tr:hover {
-            background: rgba(255, 255, 255, 0.07);
-            transform: scale(1.002);
-        }
+.appointments-table tbody tr:hover {
+    background: rgba(255, 255, 255, 0.07);
+    transform: scale(1.002);
+}
 
-    /* תאי הטבלה המורחבים */
-    .appointments-table td {
-        padding: 20px 25px;
-        color: #f0f0f0;
-        font-size: 1.05rem;
-        vertical-align: middle;
-    }
+.appointments-table td {
+    padding: 20px 25px;
+    color: #f0f0f0;
+    font-size: 1.05rem;
+    vertical-align: middle;
+}
 
-        /* מירכוז עמודת הסטטוס */
-        .appointments-table th.status-col,
-        .appointments-table td.status-col {
-            text-align: center !important;
-        }
+.appointments-table th.status-col,
+.appointments-table td.status-col {
+    text-align: center !important;
+}
 
-        /* מירכוז ועיצוב עמודת הפעולות */
-        .appointments-table th.action-col,
-        .appointments-table td.action-col {
-            text-align: center !important;
-            width: 140px;
-        }
+.appointments-table th.action-col,
+.appointments-table td.action-col {
+    text-align: center !important;
+    width: 140px;
+}
 
     .appointments-table tbody tr td:first-child {
         border-top-left-radius: 10px;
@@ -117,7 +106,6 @@
         border-bottom-right-radius: 10px;
     }
 
-/* תג שעה מעוצב */
 .time-badge {
     font-family: 'Courier New', Courier, monospace;
     background: rgba(255, 255, 255, 0.1);
@@ -127,7 +115,6 @@
     font-weight: 600;
 }
 
-/* תגיות הסטטוס / שולם */
 .status-badge {
     padding: 8px 18px;
     border-radius: 50px;
@@ -150,7 +137,6 @@
         border: 1px solid rgba(231, 76, 60, 0.3);
     }
 
-/* כפתור מחיקה בעיצוב זכוכית אדום */
 .btn-delete {
     background: rgba(231, 76, 60, 0.15);
     color: #ff6b6b;
@@ -181,7 +167,7 @@
         box-shadow: none;
     }
 
-/* תיבת הודעה מעוצבת למקרה שאין נתונים בטבלה מסוימת */
+
 .no-data-box {
     text-align: center;
     color: #999;

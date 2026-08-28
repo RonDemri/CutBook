@@ -3,6 +3,7 @@
     Layout = "~/Views/Shared/MasterPage.cshtml";
 }
 <link href="~/css/stylesheetsingup.css" rel="stylesheet" />
+
 <div class="signup-container">
     <div class="signup-card">
         <h1 class="signup-heading">Create <span>Account</span></h1>
@@ -11,22 +12,102 @@
         {
             <div class="error-mesage">@ViewBag.Error</div>
         }
-        <form action="/Home/SignUp" method="post" class="signup-form">
+        <form action="/Home/SignUp" method="post" class="signup-form" id="signUpForm" novalidate>
+
             <div class="form-group">
                 <label>ID</label>
-                <input type="text" name="userID" placeholder="Enter your ID" required />
-                <label>Full Name</label>
-                <input type="text" name="firstName" placeholder="First Name" required />
-                <input type="text" name="lastName" placeholder="Last Name" required />
-                <label>Email</label>
-                <input type="email" name="userEmail" placeholder="example@email.com" required />
-                <label>Phone</label>
-                <input type="tel" name="userTel" placeholder="050-1234567" required />
-                <label>Password</label>
-                <input type="password" name="userPassword" placeholder="Enter a strong password" required />
+                <input type="text" id="userID" name="userID" placeholder="Enter your ID" />
+                <span id="userIDError" class="field-error"></span>
             </div>
+
+            <div class="form-row">
+                <div class="form-group">
+                    <label>First Name</label>
+                    <input type="text" id="firstName" name="firstName" placeholder="First Name" />
+                    <span id="firstNameError" class="field-error"></span>
+                </div>
+                <div class="form-group">
+                    <label>Last Name</label>
+                    <input type="text" id="lastName" name="lastName" placeholder="Last Name" />
+                    <span id="lastNameError" class="field-error"></span>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label>Email</label>
+                <input type="text" id="userEmail" name="userEmail" placeholder="example@gmail.com" />
+                <span id="userEmailError" class="field-error"></span>
+            </div>
+
+            <div class="form-group">
+                <label>Phone</label>
+                <input type="tel" id="userTel" name="userTel" placeholder="050-1234567" />
+                <span id="userTelError" class="field-error"></span>
+            </div>
+
+            <div class="form-group">
+                <label>Password</label>
+                <input type="password" id="userPassword" name="userPassword" placeholder="Enter a strong password" />
+                <span id="userPasswordError" class="field-error"></span>
+            </div>
+
             <button type="submit" class="btn-signup">Sign Up</button>
         </form>
     </div>
 </div>
 
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const form = document.getElementById("signUpForm");
+
+        if (!form) return;
+
+        form.addEventListener("submit", function (e) {
+            let isValid = true;
+
+            document.querySelectorAll(".field-error").forEach(span => span.innerText = "");
+
+            const userID = document.getElementById("userID").value.trim();
+            const firstName = document.getElementById("firstName").value.trim();
+            const lastName = document.getElementById("lastName").value.trim();
+            const userEmail = document.getElementById("userEmail").value.trim();
+            const userTel = document.getElementById("userTel").value.trim().replace(/[\s-]/g, "");
+            const userPassword = document.getElementById("userPassword").value;
+
+            if (!/^\d{9}$/.test(userID)) {
+                document.getElementById("userIDError").innerText = "An ID must contain exactly 9 digits.";
+                isValid = false;
+            }
+
+            if (firstName.length < 1) {
+                document.getElementById("firstNameError").innerText = "Please enter your first name.";
+                isValid = false;
+            }
+
+            if (lastName.length < 1) {
+                document.getElementById("lastNameError").innerText = "Please enter your last name.";
+                isValid = false;
+            }
+
+            const emailRegex = /^[^\s@@]+@@[^\s@@]+\.[^\s@@]+$/;
+            if (!emailRegex.test(userEmail)) {
+                document.getElementById("userEmailError").innerText = "Invalid email address.";
+                isValid = false;
+            }
+
+            if (!/^\d{10}$/.test(userTel)) {
+                document.getElementById("userTelError").innerText = "A phone number must contain exactly 10 digits.";
+                isValid = false;
+            }
+
+            if (userPassword.length < 6) {
+                document.getElementById("userPasswordError").innerText = "The password must contain at least 6 characters.";
+                isValid = false;
+            }
+
+            if (!isValid) {
+                e.preventDefault();
+            }
+        });
+    });
+</script>

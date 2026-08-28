@@ -36,7 +36,6 @@ namespace CutBook.Controllers
             HttpContext.Session.SetString("UserName", realName);
             HttpContext.Session.SetString("IsAdmin", isAdmin ? "true" : "false");
 
-            // הפנייה לעמוד המנהל במידה והמשתמש הוא מנהל
             if (isAdmin)
             {
                 return RedirectToAction("Appointments", "Admin");

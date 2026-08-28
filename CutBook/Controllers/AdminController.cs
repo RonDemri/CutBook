@@ -12,7 +12,6 @@ namespace CutBook.Controllers
             return HttpContext.Session.GetString("IsAdmin") == "true";
         }
 
-        // 1. צפייה בכל התורים במערכת
         public IActionResult Appointments()
         {
             if (!IsAdminLoggedIn()) return RedirectToAction("GetLoginForm", "Home");
@@ -42,7 +41,7 @@ namespace CutBook.Controllers
                 .ToArray();
             return View(sortedList);
         }
-        // 2. שינוי סטטוס תשלום
+
         [HttpPost]
         public IActionResult TogglePayment(int appointmentId, bool currentStatus)
         {
@@ -54,7 +53,6 @@ namespace CutBook.Controllers
             return RedirectToAction("Appointments");
         }
 
-        // 3. מחיקת תור
         [HttpPost]
         public IActionResult DeleteAppointment(int appointmentId)
         {
@@ -65,7 +63,6 @@ namespace CutBook.Controllers
             return RedirectToAction("Appointments");
         }
 
-        // 4. צפייה בהכנסות
         public IActionResult MyIncomes()
         {
             if (!IsAdminLoggedIn()) return RedirectToAction("GetLoginForm", "Home");

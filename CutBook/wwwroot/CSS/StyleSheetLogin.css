@@ -1,5 +1,5 @@
 ﻿.main {
-    margin-left: 350px; /* תואם בדיוק לרוחב ה-nav שלך */
+    margin-left: 350px; 
     width: calc(100% - 350px);
     min-height: 100vh;
     display: flex;
@@ -8,7 +8,6 @@
     padding: 40px;
 }
 
-/* קונטיינר מעטפת להבטחת מרכוז מושלם */
 .login-wrapper {
     width: 100%;
     display: flex;
@@ -16,7 +15,7 @@
     align-items: center;
 }
 
-/* כרטיס ההתחברות הכהה */
+
 .login-container {
     background-color: rgba(20, 17, 15, 0.7);
     border: 1px solid rgba(212, 175, 55, 0.2);
@@ -42,11 +41,11 @@
     margin-bottom: 35px;
 }
 
-/* עיצוב תיבות הקלט */
+
 .input-group {
     display: flex;
     flex-direction: column;
-    text-align: left; /* יישור הטקסט באנגלית לשמאל */
+    text-align: left; 
     margin-bottom: 25px;
 }
 
