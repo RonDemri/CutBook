@@ -7,20 +7,21 @@ Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "CutBook.V2", "..\", "{A88D6
 	ProjectSection(WebsiteProperties) = preProject
 		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.8"
 		Debug.AspNetCompiler.VirtualPath = "/localhost_54632"
-		Debug.AspNetCompiler.PhysicalPath = "..\..\..\OneDrive\Desktop\RON\הנדסת תוכנה\CutBook\CutBook.V2\"
+		Debug.AspNetCompiler.PhysicalPath = "..\..\CutBook.V2\"
 		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_54632\"
 		Debug.AspNetCompiler.Updateable = "true"
 		Debug.AspNetCompiler.ForceOverwrite = "true"
 		Debug.AspNetCompiler.FixedNames = "false"
 		Debug.AspNetCompiler.Debug = "True"
 		Release.AspNetCompiler.VirtualPath = "/localhost_54632"
-		Release.AspNetCompiler.PhysicalPath = "..\..\..\OneDrive\Desktop\RON\הנדסת תוכנה\CutBook\CutBook.V2\"
+		Release.AspNetCompiler.PhysicalPath = "..\..\CutBook.V2\"
 		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_54632\"
 		Release.AspNetCompiler.Updateable = "true"
 		Release.AspNetCompiler.ForceOverwrite = "true"
 		Release.AspNetCompiler.FixedNames = "false"
 		Release.AspNetCompiler.Debug = "False"
 		VWDPort = "54632"
+		SlnRelativePath = "..\..\CutBook.V2\"
 	EndProjectSection
 EndProject
 Global
