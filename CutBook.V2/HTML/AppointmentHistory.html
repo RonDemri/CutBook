@@ -1,0 +1,128 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <link href="../CSS/AppointmentHistoryCSS.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="appointments-page-container">
+
+        @if (Model != null && Model.Length > 0)
+        {
+        int upcomingCount = 0;
+        int pastCount = 0;
+
+        for (int i = 0; i < Model.Length; i++)
+        {
+        DateTime appDate;
+        if (DateTime.TryParse(Model[i].appointmentDate, out appDate))
+        {
+        if (appDate >= today) upcomingCount++;
+        else pastCount++;
+        }
+        }
+        <div class="table-section upcoming-section">
+            <h2 class="section-title"><span class="icon">📅</span> Upcoming Appointments</h2>
+
+            @if (upcomingCount > 0)
+            {
+            <table class="appointments-table">
+                <thead>
+                    <tr>
+                        <th>Date</th>
+                        <th>Time</th>
+                        <th>Haircut</th>
+                        <th class="status-col">Paid Status</th>
+                        <th class="action-col">Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @for (int i = 0; i < Model.Length; i++)
+                    {
+                    DateTime appDate;
+                    bool isParsed = DateTime.TryParse(Model[i].appointmentDate, out appDate);
+
+                    if (isParsed && appDate >= today)
+                    {
+                    <tr>
+                        <td>@Model[i].appointmentDate</td>
+                        <td class="time-badge">@Model[i].appointmentTime</td>
+                        <td class="haircut-type">@Model[i].GetHaircutName()</td>
+                        <td class="status-col">
+                            <span class="status-badge @(Model[i].isPayed ? " paid" : "unpaid" )">
+                                @(Model[i].isPayed ? "Yes" : "No")
+                            </span>
+                        </td>
+                        <td class="action-col">
+                            <form action="/User/CancelAppointment" method="post" onsubmit="return confirm('Are you sure you want to cancel this appointment?');" style="margin:0;">
+                                <input type="hidden" name="appointmentId" value="@Model[i].appointmentID" />
+                                <button type="submit" class="btn-delete">
+                                    <span>🗑️</span> Remove
+                                </button>
+                            </form>
+                        </td>
+                    </tr>
+                    }
+                    }
+                </tbody>
+            </table>
+            }
+            else
+            {
+            <div class="no-data-box">No upcoming appointments found.</div>
+            }
+        </div>
+
+        <div class="table-section past-section">
+            <h2 class="section-title"><span class="icon">⏳</span> Past Appointments</h2>
+
+            @if (pastCount > 0)
+            {
+            <table class="appointments-table">
+                <thead>
+                    <tr>
+                        <th>Date</th>
+                        <th>Time</th>
+                        <th>Haircut</th>
+                        <th class="status-col">Paid Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @for (int i = 0; i < Model.Length; i++)
+                    {
+                    DateTime appDate;
+                    bool isParsed = DateTime.TryParse(Model[i].appointmentDate, out appDate);
+
+                    if (isParsed && appDate < today)
+                    {
+                    <tr>
+                        <td>@Model[i].appointmentDate</td>
+                        <td class="time-badge">@Model[i].appointmentTime</td>
+                        <td class="haircut-type">@Model[i].GetHaircutName()</td>
+                        <td class="status-col">
+                            <span class="status-badge @(Model[i].isPayed ? " paid" : "unpaid" )">
+                                @(Model[i].isPayed ? "Yes" : "No")
+                            </span>
+                        </td>
+                    </tr>
+                    }
+                    }
+                </tbody>
+            </table>
+            }
+            else
+            {
+            <div class="no-data-box">No past appointments found.</div>
+            }
+        </div>
+        }
+        else
+        {
+        <div class="global-no-data">
+            <p>No appointments found in the system.</p>
+        </div>
+        }
+    </div>
+</body>
+</html>

@@ -1,0 +1,62 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <link href="../CSS/QueueManagementCSS.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="admin-container">
+        <h2 class="admin-title">📅 All Customer Appointments</h2>
+        <table class="admin-table">
+            <thead>
+                <tr>
+                    <th>Customer Name</th>
+                    <th>Phone Number</th>
+                    <th>Date</th>
+                    <th>Time</th>
+                    <th>Haircut</th>
+                    <th>Paid Status</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                @if (Model != null && Model.Length > 0)
+                {
+                foreach (var item in Model)
+                {
+                <tr>
+                    <td>@item.GetUserName()</td>
+                    <td>@item.GetUserTel()</td>
+                    <td>@item.GetAppointmentDate()</td>
+                    <td>@item.GetAppointmentTime()</td>
+                    <td>@item.GetHaircutName()</td>
+                    <td>
+                        <form action="/Admin/TogglePayment" method="post" style="margin:0;">
+                            <input type="hidden" name="appointmentId" value="@item.GetAppointmentID()" />
+                            <input type="hidden" name="currentStatus" value="@item.GetIsPayed().ToString().ToLower()" />
+                            <button type="submit" class="btn-status @(item.GetIsPayed() ? " btn-paid" : "btn-unpaid" )">
+                                @(item.GetIsPayed() ? "Paid" : "Unpaid")
+                            </button>
+                        </form>
+                    </td>
+                    <td>
+                        <form action="/Admin/DeleteAppointment" method="post" onsubmit="return confirm('Are you sure you want to delete this appointment?');" style="margin:0;">
+                            <input type="hidden" name="appointmentId" value="@item.GetAppointmentID()" />
+                            <button type="submit" class="btn-delete">Delete</button>
+                        </form>
+                    </td>
+                </tr>
+                }
+                }
+                else
+                {
+                <tr>
+                    <td colspan="7" class="no-data">No appointments found.</td>
+                </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>
